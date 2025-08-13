@@ -6,7 +6,6 @@ import Link from 'next/link';
 export default function About() {
   const [showMore, setShowMore] = useState(false);
 
-
   return (
     <div style={{ backgroundColor: 'black', color: 'white', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       
@@ -48,7 +47,6 @@ export default function About() {
         ))}
       </nav>
 
-
       {/* VIDEO HEADER */}
       <div style={{ position: 'relative', width: '100%', height: '500px', overflow: 'hidden' }}>
         <video
@@ -59,7 +57,6 @@ export default function About() {
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </div>
-
 
       {/* ABOUT CONTENT */}
       <div style={{ padding: '40px 20px', textAlign: 'center' }}>
@@ -100,19 +97,17 @@ export default function About() {
             </button>
           )}
 
-
           {showMore && (
             <div style={{ marginTop: '20px' }}>
               <p>
                 Our design philosophy blends cutting-edge technology with clean, accessible user experiences.
-                We prioritize responsiveness, usability, and performance across every project. Whether you're a
+                We prioritize responsiveness, usability, and performance across every project. Whether you&apos;re a
                 startup or a well-known brand, we bring your vision to life with style and precision.
               </p>
             </div>
           )}
           
-
-          {/* See User&#39;s Comments BUTTON BELOW */}
+          {/* See User's Comments BUTTON BELOW */}
           <Link href="/posts/sample-post">
             <button style={{
               marginTop: '25px',
@@ -131,7 +126,6 @@ export default function About() {
         </div>
       </div>
 
-
       {/* FOOTER */}
       <footer style={{
         backgroundColor: '#222',
@@ -140,7 +134,6 @@ export default function About() {
         color: '#aaa',
         marginTop: 'auto'
       }}>
-        
         © 2025 JK Web Designs. All rights reserved.
       </footer>
     </div>
