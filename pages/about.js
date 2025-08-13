@@ -125,7 +125,7 @@ export default function About() {
               cursor: 'pointer',
               boxShadow: '0 0 10px rgba(255,170,0,0.4)'
             }}>
-              See User's Comments
+              See User&apos;s Comments
             </button>
           </Link>
         </div>

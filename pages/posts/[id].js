@@ -73,7 +73,7 @@ export default function PostPage() {
           fontSize: '1.1rem',
           lineHeight: '1.6',
         }}>
-          <p>This is the detailed content for post <b>{id}</b>.<br />In a real app, you'd fetch this post from an API using the ID.</p>
+          <p>This is the detailed content for post <b>{id}</b>.<br />In a real app, you&apos;d fetch this post from an API using the ID.</p>
           <Link href={`/posts/${id}/comments`}>
             <button style={{
               marginTop: '20px',
