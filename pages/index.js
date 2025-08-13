@@ -1,114 +1,137 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+// pages/index.js
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import React from 'react';
+import Link from 'next/link';
 
 export default function Home() {
+  const posts = [
+    { id: 'sample-post', title: 'Sample Post' },
+    { id: 'web-design', title: 'Web Design Basics' },
+    { id: 'nextjs-tips', title: 'Next.js Tips for Beginners' }
+  ];
+
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div style={{ backgroundColor: 'black', color: 'white', minHeight: '100vh' }}>
+
+      {/* NAVBAR */}
+      <nav style={{
+        position: 'absolute',
+        top: 0,
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        padding: '15px 0',
+        background: 'rgba(0, 0, 0, 0.5)',
+        backdropFilter: 'blur(8px)',
+        zIndex: 10,
+      }}>
+
+
+        {['Home', 'About', 'Contact'].map((text) => (
+          <Link key={text} href={text === 'Home' ? '/' : `/${text.toLowerCase()}`}>
+            <div
+              style={{
+                display: 'inline-block',
+                margin: '0 10px',
+                padding: '10px 20px',
+                backgroundColor: '#003366',
+                color: 'white',
+                fontWeight: 'bold',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                transition: 'background-color 0.3s ease',
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'red'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#003366'}
+            >
+              {text}
+            </div>
+          </Link>
+        ))}
+      </nav>
+
+
+      {/* VIDEO HEADER */}
+      <div style={{ position: 'relative', width: '100%', height: '500px', overflow: 'hidden' }}>
+        <video
+          src="/vid.mp4"
+          autoPlay
+          loop
+          muted
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      </div>
+
+      {/* INTRO TEXT */}
+      <div style={{ padding: '40px 20px', textAlign: 'center' }}>
+        <h2 style={{ color: 'cyan', fontSize: '2.5rem', marginBottom: '30px' }}>
+          Welcome to JK Web Designs
+        </h2>
+        <div style={{
+          maxWidth: '700px',
+          margin: '0 auto',
+          padding: '20px',
+          backgroundColor: '#1e1e1e',
+          borderRadius: '10px',
+          boxShadow: '0 0 15px rgba(0, 255, 255, 0.4)',
+          fontSize: '1.1rem',
+          lineHeight: '1.6',
+        }}>
+          <p>
+            At JK Web Designs which is maintained by Jamil Khalil, we build sleek, modern, and high-performance websites using the latest front-end technologies. Our passion for creativity and code drives us to deliver stunning user experiences that stand out in the digital world.
+          </p>
+          <p style={{ marginTop: '15px' }}>
+            Explore our site to learn more about who we are, what we do, and how we can help you build your online presence with elegance and efficiency.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+
+
+      {/* DYNAMIC ROUTING POSTS SECTION */}
+
+      <div style={{ padding: '40px 20px', textAlign: 'center' }}>
+        <h3 style={{ color: 'orange', fontSize: '2rem', marginBottom: '20px' }}>Recent Blog Posts</h3>
+        <ul style={{
+          listStyle: 'none',
+          padding: 0,
+          maxWidth: '700px',
+          margin: '0 auto',
+        }}>
+          {posts.map((post) => (
+            <li key={post.id} style={{
+              marginBottom: '15px',
+              backgroundColor: '#1e1e1e',
+              padding: '15px',
+              borderRadius: '8px',
+              boxShadow: '0 0 10px rgba(255, 165, 0, 0.3)',
+              transition: 'transform 0.2s ease',
+            }}>
+              <Link href={`/posts/${post.id}`}>
+                <span style={{
+                  color: '#00ffff',
+                  fontWeight: 'bold',
+                  fontSize: '1.2rem',
+                  cursor: 'pointer'
+                }}>
+                  {post.title}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+
+      {/* FOOTER */}
+      
+      <footer style={{
+        backgroundColor: '#222',
+        padding: '15px 0',
+        textAlign: 'center',
+        color: '#aaa',
+        marginTop: '30px'
+      }}>
+        © 2025 JK Web Designs. All rights reserved.
       </footer>
     </div>
   );
