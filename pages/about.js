@@ -112,7 +112,7 @@ export default function About() {
           )}
           
 
-          {/* SEE USER'S COMMENTS BUTTON BELOW */}
+          {/* See User&#39;s Comments BUTTON BELOW */}
           <Link href="/posts/sample-post">
             <button style={{
               marginTop: '25px',
